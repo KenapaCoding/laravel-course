@@ -9,8 +9,8 @@ Route::get('/', function () {
 Route::get('/about', function () {
     // $nama = 'Ranggo Pato';
     $data = 'Ranggo Pato';
-    $umur = 19;
-    return view('about', ['data' => $data, 'umur' => 19]);
+    $umur = 15;
+    return view('about', ['data' => $data, 'umur' => $umur]);
     // return view('about', compact('data', 'umur'));
     // return view('about')
     //                 ->with('data', 'Ranggo Pato')
@@ -22,7 +22,12 @@ Route::get('/contact', function () {
 });
 
 Route::get('/siswa', function () {
-    return view('siswa.index');
+    $data = [
+        ['nama'=>'Budi', 'nilai' => 80, 'id'=>'001'],
+        ['nama'=>'Intan', 'nilai' => 83, 'id'=>'002'],
+        ['nama'=>'Citra', 'nilai' => 92, 'id'=>'003']
+    ];
+    return view('siswa.index',['data'=>$data]);
 });
 
 Route::get('/siswa/{id}', function ($id) {

@@ -7,6 +7,13 @@
     <title>Siswa Page</title>
 </head>
 <body>
-    <h1>Hello from siswa</h1>
+    <h1>Daftar siswa</h1>
+    <ul>
+        @foreach ( $data as $item )
+            <li>
+                <h3>{{$item['nama']}} - {{$item['nilai']}}</h3>
+            </li>
+        @endforeach
+    </ul>
 </body>
 </html>
