@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Welcome to tutorial laravel with kenapa coding</h1>
-</body>
-</html>
+<x-layout>
+    <h1>Welcome to tutorial laravel by kenapa coding</h1>
+    <x-slot:footer>
+        <strong>Home Page</strong>
+    </x-slot:footer>
+</x-layout>

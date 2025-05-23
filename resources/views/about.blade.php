@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>About Page</title>
-</head>
-<body>
+<x-layout>
     <h1>Hello from about page view, I am {{$data}}</h1>
     <p>Age : {{$umur}}</p>
     @if ($umur > 18)
@@ -14,5 +6,8 @@
     @else
         <h3>You dont have rights to vote</h3>
     @endif
-</body>
-</html>
+    <x-slot:footer>
+        <strong>About Page</strong>
+    </x-slot:footer>
+</x-layout>
+
