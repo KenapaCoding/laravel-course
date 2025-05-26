@@ -8,6 +8,7 @@
                 <th class="px-3 py-2 whitespace-nowrap">Tanggal Lahir</th>
                 <th class="px-3 py-2 whitespace-nowrap">Jurusan</th>
                 <th class="px-3 py-2 whitespace-nowrap">Nilai</th>
+                <th class="px-3 py-2 whitespace-nowrap">Details</th>
             </tr>
             </thead>
 
@@ -15,9 +16,14 @@
                 @foreach ( $data as $item )
                     <tr class="*:text-gray-900 *:first:font-medium">
                     <td class="px-3 py-2 whitespace-nowrap">{{$item['nama']}}</td>
-                    <td class="px-3 py-2 whitespace-nowrap">04/06/1262</td>
-                    <td class="px-3 py-2 whitespace-nowrap">Vampire Warrior</td>
+                    <td class="px-3 py-2 whitespace-nowrap">{{$item['tanggal_lahir']}}</td>
+                    <td class="px-3 py-2 whitespace-nowrap">{{$item['jurusan']}}</td>
                     <td class="px-3 py-2 whitespace-nowrap">{{$item['nilai']}}</td>
+                    <td class="px-3 py-2 whitespace-nowrap">
+                        <a href="/siswa/{{ $item['id'] }}" class="text-teal-500 font-bold hover:opacity-50">
+                            View Details
+                        </a>
+                    </td>
                 </tr>
                 @endforeach
 
