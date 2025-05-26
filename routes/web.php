@@ -8,7 +8,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/about', function () {
+Route::get('/kenapacoding/about', function () {
     // $nama = 'Ranggo Pato';
     $data = 'Ranggo Pato';
     $umur = 15;
@@ -17,12 +17,12 @@ Route::get('/about', function () {
     // return view('about')
     //                 ->with('data', 'Ranggo Pato')
     //                 ->with('umur', 19);
-});
+})->name('about');
 
 Route::get('/contact', function () {
     return view('contact');
-});
+})->name('contact');
 
-Route::get('/siswa', [SiswaController::class, 'index']);
+Route::get('/siswa', [SiswaController::class, 'index'])->name('siswa.index');
 
-Route::get('/siswa/{id}', [SiswaController::class, 'show']);
+Route::get('/siswa/{id}', [SiswaController::class, 'show'])->name('siswa.show');
