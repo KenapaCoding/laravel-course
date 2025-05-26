@@ -30,6 +30,9 @@
             </tbody>
         </table>
     </div>
+    <div class="py-10">
+        {{ $data->appends(request()->query())->links() }}
+    </div>
 
     <x-slot:footer>
         <strong>Siswa Page</strong>
