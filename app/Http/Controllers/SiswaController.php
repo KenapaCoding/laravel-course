@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Mentor;
 use Illuminate\Http\Request;
 use App\Models\Siswa;
 
@@ -23,6 +24,8 @@ class SiswaController extends Controller
     public function create()
     {
         //
+        $mentors = Mentor::all();
+        return view('siswa.create', ['mentors' => $mentors]);
     }
 
     /**
