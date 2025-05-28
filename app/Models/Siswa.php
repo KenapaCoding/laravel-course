@@ -11,7 +11,7 @@ class Siswa extends Model
     // Siswa cari ke table siswas
     // User cari ke table users
     protected $table = 'siswa';
-    protected $fillable = ['nama','tanggal_lahir','jurusan', 'nilai'];
+    protected $fillable = ['nama','tanggal_lahir','jurusan', 'nilai', 'mentor_id'];
 
     public function mentor(){
         return $this->belongsTo(Mentor::class);
