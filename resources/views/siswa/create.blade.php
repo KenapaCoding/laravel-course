@@ -1,7 +1,7 @@
 <x-layout>
     <h1 class="text-xl mb-5 font-bold">Create siswa</h1>
     <form action="#" method="POST" class="space-y-4 max-w-4xl">
-
+        @csrf
       <!-- Nama -->
       <div>
         <label for="nama" class="block text-sm font-medium text-gray-700">Nama</label>
