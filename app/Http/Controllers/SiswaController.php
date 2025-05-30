@@ -56,10 +56,11 @@ class SiswaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Siswa $siswa)
     {
         //
-        $siswa = Siswa::with('mentor')->findOrFail($id);
+        // $siswa = Siswa::with('mentor')->findOrFail($id);
+        $siswa->load('mentor');
         return view('siswa.show', ['siswa' => $siswa]);
     }
 
@@ -82,10 +83,10 @@ class SiswaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Siswa $siswa)
     {
         //
-        $siswa = Siswa::findOrFail($id);
+        // $siswa = Siswa::findOrFail($id);
         $siswa->delete();
 
         return redirect()->route('siswa.index')->with('success', 'Data Siswa berhasil di delete');
