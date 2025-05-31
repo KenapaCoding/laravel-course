@@ -17,6 +17,8 @@ Route::post('/auth/login', [AuthController::class, 'login'])->name('login');
 
 Route::post('/auth/register', [AuthController::class, 'register'])->name('register');
 
+Route::post('/auth/logout', [AuthController::class, 'logout'])->name('logout');
+
 Route::get('/siswa', [SiswaController::class, 'index'])->name('siswa.index');
 
 Route::post('/siswa', [SiswaController::class, 'store'])->name('siswa.store');
