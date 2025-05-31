@@ -8,6 +8,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/auth/login', function () {
+    return view('auth.login');
+})->name('auth.login');
+
+Route::get('/auth/register', function () {
+    return view('auth.register');
+})->name('auth.register');
+
 Route::get('/siswa', [SiswaController::class, 'index'])->name('siswa.index');
 
 Route::post('/siswa', [SiswaController::class, 'store'])->name('siswa.store');
