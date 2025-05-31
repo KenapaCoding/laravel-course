@@ -32,17 +32,26 @@
 
                             <div class="relative mb-4 flex flex-col" data-twe-input-wrapper-init>
                                 <label for="name">Name</label>
-                                <input class="px-2 py-1 w-full border-1 rounded" type="text" name="name" id="name">
+                                <input class="px-2 py-1 w-full border-1 rounded" type="text" name="name" id="name" value="{{ old('name') }}">
+                                @error('name')
+                                    <div class="text-red-500 text-sm">{{ $message }}</div>
+                                @enderror
                             </div>
 
                             <div class="relative mb-4 flex flex-col" data-twe-input-wrapper-init>
                                 <label for="email">Email</label>
-                                <input class="px-2 py-1 w-full border-1 rounded" type="email" name="email" id="email">
+                                <input class="px-2 py-1 w-full border-1 rounded" type="email" name="email" id="email" value="{{ old('email') }}">
+                                @error('email')
+                                    <div class="text-red-500 text-sm">{{ $message }}</div>
+                                @enderror
                             </div>
 
                             <div class="relative mb-4 flex flex-col" data-twe-input-wrapper-init>
                                 <label for="password">Password</label>
                                 <input class="px-2 py-1 w-full border-1 rounded" type="password" name="password" id="password">
+                                @error('password')
+                                    <div class="text-red-500 text-sm">{{ $message }}</div>
+                                @enderror
                             </div>
 
                             <div class="relative mb-4 flex flex-col" data-twe-input-wrapper-init>
