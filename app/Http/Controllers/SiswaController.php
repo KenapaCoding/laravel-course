@@ -6,6 +6,7 @@ use App\Models\Mentor;
 use Illuminate\Http\Request;
 use App\Models\Siswa;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class SiswaController extends Controller
 {
@@ -26,7 +27,10 @@ class SiswaController extends Controller
     {
         //
 
-        abort_unless(Auth::user()->isAdmin(), 403);
+        // abort_unless(Auth::user()->isAdmin(), 403);
+
+        // abort_unless(Gate::allows('create-delete-siswa'), 403);
+        Gate::authorize('create-delete-siswa');
 
         $mentors = Mentor::all();
         return view('siswa.create', ['mentors' => $mentors]);
@@ -40,6 +44,7 @@ class SiswaController extends Controller
     public function store(Request $request)
     {
         //
+        Gate::authorize('create-delete-siswa');
         $validated = $request->validate([
             'nama' => 'required|string|min:3',
             'tanggal_lahir' => 'required|date',
@@ -93,6 +98,7 @@ class SiswaController extends Controller
     {
         //
         // $siswa = Siswa::findOrFail($id);
+        Gate::authorize('create-delete-siswa');
         $siswa->delete();
 
         return redirect()->route('siswa.index')->with('success', 'Data Siswa berhasil di delete');
