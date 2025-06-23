@@ -36,13 +36,16 @@
             </div>
         </dl>
     </div>
-    <form action="{{ route('siswa.destroy', $siswa->id ) }}" method="post">
-        @csrf
-        @method('DELETE')
-        <button type="submit" class="my-8 px-4 py-2 bg-teal-600 text-white rounded cursor-pointer">
-            Delete
-        </button>
-    </form>
+    @can('create-delete-siswa')
+        <form action="{{ route('siswa.destroy', $siswa->id ) }}" method="post">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="my-8 px-4 py-2 bg-teal-600 text-white rounded cursor-pointer">
+                Delete
+            </button>
+        </form>
+    @endcan
+
     <x-slot:footer>
         <strong>Siswa detail Page</strong>
     </x-slot:footer>

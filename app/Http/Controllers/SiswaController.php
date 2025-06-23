@@ -31,6 +31,9 @@ class SiswaController extends Controller
 
         // abort_unless(Gate::allows('create-delete-siswa'), 403);
         Gate::authorize('create-delete-siswa');
+        // if(Auth::user()->cannot('create-delete-siswa')){
+        //     abort(403);
+        // }
 
         $mentors = Mentor::all();
         return view('siswa.create', ['mentors' => $mentors]);

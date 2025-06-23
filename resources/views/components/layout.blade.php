@@ -33,9 +33,11 @@
                     <li>
                         <x-nav-link class="text-gray-500 transition hover:text-gray-500/75" href="/" :active="request()->is('/')"> Home </x-nav-link>
                     </li>
-                    <li>
-                         <x-nav-link class="text-gray-500 transition hover:text-gray-500/75" href="{{ route('siswa.create') }}" :active="request()->routeIs('siswa.create')"> Create Siswa </x-nav-link>
-                    </li>
+                    @can('create-delete-siswa')
+                        <li>
+                            <x-nav-link class="text-gray-500 transition hover:text-gray-500/75" href="{{ route('siswa.create') }}" :active="request()->routeIs('siswa.create')"> Create Siswa </x-nav-link>
+                        </li>
+                    @endcan
                     <li>
                         <x-nav-link class="text-gray-500 transition hover:text-gray-500/75" href="{{ route('siswa.index') }}" :active="request()->routeIs('siswa.index')">Siswa </x-nav-link>
                     </li>
