@@ -20,18 +20,20 @@ Route::middleware('guest')->controller(AuthController::class)->group(function(){
     Route::post('/auth/register', 'register')->name('register');
 });
 
+// Route::get('/siswa/create', [SiswaController::class, 'create'])->name('siswa.create')->middleware(['auth', 'can:create-delete-siswa']);
 
 Route::middleware('auth')->controller(SiswaController::class)->group(function(){
     Route::get('/siswa', 'index')->name('siswa.index');
 
-    Route::post('/siswa','store')->name('siswa.store');
+    Route::post('/siswa','store')->name('siswa.store')->can('create-delete-siswa');
 
-    Route::get('/siswa/create','create')->name('siswa.create');
+    Route::get('/siswa/create','create')->name('siswa.create')->can('create-delete-siswa');
 
     Route::get('/siswa/{siswa}','show')->name('siswa.show');
 
-    Route::delete('/siswa/{siswa}','destroy')->name('siswa.destroy');
+    Route::delete('/siswa/{siswa}','destroy')->name('siswa.destroy')->can('create-delete-siswa');
 });
+
 
 // Route::middleware('auth')->group(function(){
 //     Route::get('/siswa', [SiswaController::class, 'index'])->name('siswa.index');
