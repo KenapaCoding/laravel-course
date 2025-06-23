@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Mentor;
 use Illuminate\Http\Request;
 use App\Models\Siswa;
+use Illuminate\Support\Facades\Auth;
 
 class SiswaController extends Controller
 {
@@ -24,8 +25,13 @@ class SiswaController extends Controller
     public function create()
     {
         //
+
+        abort_unless(Auth::user()->isAdmin(), 403);
+
         $mentors = Mentor::all();
         return view('siswa.create', ['mentors' => $mentors]);
+
+
     }
 
     /**

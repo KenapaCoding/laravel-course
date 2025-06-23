@@ -47,7 +47,11 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
-    protected $cast = [
+    protected $casts = [
         'role' => Role::class
     ];
+
+    public function isAdmin(){
+        return $this->role === Role::Admin;
+    }
 }
