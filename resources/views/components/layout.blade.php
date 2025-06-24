@@ -33,7 +33,7 @@
                     <li>
                         <x-nav-link class="text-gray-500 transition hover:text-gray-500/75" href="/" :active="request()->is('/')"> Home </x-nav-link>
                     </li>
-                    @can('create-delete-siswa')
+                    @can('create',\App\Models\Siswa::class)
                         <li>
                             <x-nav-link class="text-gray-500 transition hover:text-gray-500/75" href="{{ route('siswa.create') }}" :active="request()->routeIs('siswa.create')"> Create Siswa </x-nav-link>
                         </li>

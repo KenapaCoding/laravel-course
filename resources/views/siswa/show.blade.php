@@ -36,7 +36,7 @@
             </div>
         </dl>
     </div>
-    @can('create-delete-siswa')
+    @can('create', \App\Models\Siswa::class)
         <form action="{{ route('siswa.destroy', $siswa->id ) }}" method="post">
             @csrf
             @method('DELETE')

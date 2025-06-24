@@ -25,13 +25,13 @@ Route::middleware('guest')->controller(AuthController::class)->group(function(){
 Route::middleware('auth')->controller(SiswaController::class)->group(function(){
     Route::get('/siswa', 'index')->name('siswa.index');
 
-    Route::post('/siswa','store')->name('siswa.store')->can('create-delete-siswa');
+    Route::post('/siswa','store')->name('siswa.store')->can('create', \App\Models\Siswa::class);
 
-    Route::get('/siswa/create','create')->name('siswa.create')->can('create-delete-siswa');
+    Route::get('/siswa/create','create')->name('siswa.create')->can('create', \App\Models\Siswa::class);
 
     Route::get('/siswa/{siswa}','show')->name('siswa.show');
 
-    Route::delete('/siswa/{siswa}','destroy')->name('siswa.destroy')->can('create-delete-siswa');
+    Route::delete('/siswa/{siswa}','destroy')->name('siswa.destroy')->can('create','siswa');
 });
 
 
